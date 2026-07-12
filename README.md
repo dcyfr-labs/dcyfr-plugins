@@ -44,14 +44,16 @@ Every plugin in this registry has been:
 import { PluginLoader } from '@dcyfr/ai';
 
 const loader = new PluginLoader();
-await loader.loadFromMarketplace('dcyfr/dcyfr-plugins', 'secret-detector');
+await loader.loadFromMarketplace('dcyfr-labs/dcyfr-plugins', 'secret-detector');
 ```
 
 ---
 
-## 🏗️ Plugin Structure
+## 🏗️ Registry Structure
 
-Every plugin in this registry follows a standard layout:
+**This registry hosts plugin metadata and trust artifacts, not plugin implementation code.** Each entry carries the manifest, SBOM, and trust score for a plugin; the implementation referenced by each manifest's `entrypoint` field (`src/index.ts`) is not published in this repository.
+
+Every registry entry follows a standard layout:
 
 ```
 plugins/<name>/
@@ -59,10 +61,7 @@ plugins/<name>/
     manifest.json       # name, version, capabilities, permissions, dcyfr compat range
   sbom.json             # CycloneDX SBOM — all runtime dependencies declared
   trust-score.json      # verified trust metrics (automated, do not edit manually)
-  index.ts              # plugin entry point
-  package.json
-  README.md
-  LICENSE
+  README.md             # optional — plugin-specific usage notes
 ```
 
 ### Trust Score Breakdown
