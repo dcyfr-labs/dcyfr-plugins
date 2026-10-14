@@ -3,8 +3,10 @@
 name: Plugin Security Scan
 
 on:
+  # No paths filter on pull_request: both jobs are required status checks, and a
+  # filtered-out workflow never reports, which leaves docs-only PRs blocked. The
+  # jobs read only checked-in JSON, so running them on every PR costs seconds.
   pull_request:
-    paths: ['plugins/**']
     types: [opened, synchronize, reopened]
   push:
     branches: [main]
