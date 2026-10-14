@@ -43,8 +43,10 @@ Every plugin in this registry has been:
 ```typescript
 import { PluginLoader } from '@dcyfr/ai';
 
+// This registry publishes manifests, SBOMs and trust scores, not plugin code.
+// Load your own build of the plugin's entrypoint:
 const loader = new PluginLoader();
-await loader.loadFromMarketplace('dcyfr-labs/dcyfr-plugins', 'secret-detector');
+await loader.loadPlugin('./plugins/secret-detector/dist/index.js');
 ```
 
 ---

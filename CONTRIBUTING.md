@@ -64,7 +64,7 @@ your-plugin/
 3. Add all required files
 4. Open a PR — automated security scan runs automatically
 5. Address any findings from the security scan
-6. A DCYFR team member will review and merge
+6. A DCYFR Labs maintainer will review and merge
 
 ## Automated Checks
 
